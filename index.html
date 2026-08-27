@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>패스루 PASSTHRU — 도서관, 꺼내지 말고 그냥 지나가세요</title>
+<meta name="description" content="QR을 띄우려고 멈춰 서는 3초가 도서관 입구의 대기줄을 만듭니다. 패스루는 학생증 인증을 주머니 안에서 끝냅니다. 우리 학교 파일럿 사전 신청.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="패스루 PASSTHRU — 도서관, 꺼내지 말고 그냥 지나가세요">
+<meta property="og:description" content="입구에서 멈추는 3초가 모두의 20분이 됩니다. 우리 학교 파일럿 사전 신청받는 중.">
+<meta name="twitter:card" content="summary_large_image">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@200;300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#0c0b0a;color:#f2f0ec;font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue','Noto Sans KR',sans-serif;letter-spacing:-.011em;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:oklch(0.78 0.17 58);text-decoration:none}
+a:hover{color:#f2f0ec}
+@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{opacity:.25;transform:scale(1)}50%{opacity:.7;transform:scale(1.35)}}
+details summary::-webkit-details-marker{display:none}
+h1,h2{font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue','Noto Sans KR',sans-serif;font-weight:400;letter-spacing:-.035em}
+body{font-weight:400}
+h1 span,h2 span{font-weight:400}
+input,textarea,button{font-family:inherit}
+::selection{background:oklch(0.78 0.17 58);color:#0c0b0a}
+@keyframes qr1{0%{left:-8%;opacity:1}16%{left:34%}44%{left:34%}50%{left:46%}54%{left:56%}66%{opacity:1}68%{left:108%;opacity:0}100%{left:108%;opacity:0}}
+@keyframes qr2{0%{left:-22%;opacity:1}19%{left:25.5%}47%{left:25.5%}53%{left:34%}58%{left:46%}62%{left:56%}77%{opacity:1}79%{left:108%;opacity:0}100%{left:108%;opacity:0}}
+@keyframes qr3{0%{left:-36%;opacity:1}22%{left:17%}51%{left:17%}57%{left:25.5%}62%{left:34%}67%{left:46%}71%{left:56%}85%{opacity:1}87%{left:108%;opacity:0}100%{left:108%;opacity:0}}
+@keyframes qr4{0%{left:-50%;opacity:1}25%{left:8.5%}55%{left:8.5%}62%{left:17%}67%{left:25.5%}72%{left:34%}76%{left:46%}80%{left:56%}91%{opacity:1}93%{left:108%;opacity:0}100%{left:108%;opacity:0}}
+@keyframes qr5{0%{left:-64%;opacity:1}28%{left:0%}59%{left:0%}66%{left:8.5%}71%{left:17%}76%{left:25.5%}81%{left:34%}85%{left:46%}89%{left:56%}95%{opacity:1}97%{left:108%;opacity:0}100%{left:108%;opacity:0}}
+@keyframes qrArmL{0%,48%{transform:rotateY(0deg)}50%,54%{transform:rotateY(84deg)}56%,57%{transform:rotateY(0deg)}58%,62%{transform:rotateY(84deg)}64%,66%{transform:rotateY(0deg)}67%,71%{transform:rotateY(84deg)}73%,75%{transform:rotateY(0deg)}76%,80%{transform:rotateY(84deg)}82%,84%{transform:rotateY(0deg)}85%,89%{transform:rotateY(84deg)}91%,100%{transform:rotateY(0deg)}}
+@keyframes qrArmR{0%,48%{transform:rotateY(0deg)}50%,54%{transform:rotateY(-84deg)}56%,57%{transform:rotateY(0deg)}58%,62%{transform:rotateY(-84deg)}64%,66%{transform:rotateY(0deg)}67%,71%{transform:rotateY(-84deg)}73%,75%{transform:rotateY(0deg)}76%,80%{transform:rotateY(-84deg)}82%,84%{transform:rotateY(0deg)}85%,89%{transform:rotateY(-84deg)}91%,100%{transform:rotateY(0deg)}}
+@keyframes legA{from{transform:rotate(-20deg)}to{transform:rotate(20deg)}}
+@keyframes legB{from{transform:rotate(20deg)}to{transform:rotate(-20deg)}}
+@keyframes armA{from{transform:rotate(14deg)}to{transform:rotate(-14deg)}}
+@keyframes armB{from{transform:rotate(-14deg)}to{transform:rotate(14deg)}}
+@keyframes flow{0%{left:-8%}100%{left:112%}}
+@media (max-width:900px){
+[data-r="demo"]{grid-template-columns:1fr!important}
+[data-r="demo-side"]{border-left:none!important;border-top:1px solid rgba(255,255,255,.07)!important}
+[data-r="table"]{grid-template-columns:.85fr 1fr 1fr!important;font-size:12px!important}
+[data-r="thead"]{padding:12px 10px!important}
+[data-r="tlabel"]{padding:14px 10px!important}
+[data-r="tcell"]{padding:14px 10px!important}
+}
+@media (max-width:760px){[data-r="nav"]{display:none!important}}
+</style>
+</helmet>
+
+<div style="position:relative;overflow-x:hidden">
+<div style="position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;background:radial-gradient(1200px 600px at 70% -10%, oklch(0.78 0.17 58 / .10), transparent 60%)"></div>
+
+<header style="position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(12,11,10,.72);border-bottom:1px solid rgba(255,255,255,.07)">
+<div style="max-width:1180px;margin:0 auto;padding:16px 28px;display:flex;align-items:center;gap:28px">
+<div style="display:flex;align-items:center;gap:10px">
+<div style="width:22px;height:22px;border-radius:6px;background:oklch(0.78 0.17 58);position:relative">
+<div style="position:absolute;left:6px;top:5px;width:2px;height:12px;background:#0c0b0a"></div>
+<div style="position:absolute;left:12px;top:5px;width:4px;height:12px;background:#0c0b0a"></div>
+</div>
+<span style="font-weight:600;font-size:18px;letter-spacing:-.02em">패스루</span>
+<span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:rgba(242,240,236,.4);letter-spacing:.14em;padding-top:2px">PASSTHRU</span>
+</div>
+<nav data-r="nav" style="display:flex;gap:28px;margin-left:auto;font-size:15px;color:rgba(242,240,236,.62)">
+<a href="#problem" style="color:inherit">왜 필요한가</a>
+<a href="#how" style="color:inherit">작동 방식</a>
+<a href="#compare" style="color:inherit">QR과 비교</a>
+<a href="#app" style="color:inherit">앱 화면</a>
+<a href="#signup" style="color:inherit">사전 신청</a>
+<a href="#faq" style="color:inherit">FAQ</a>
+</nav>
+<a href="#contact" style="margin-left:auto;font-size:13.5px;font-weight:600;color:#0c0b0a;background:oklch(0.78 0.17 58);padding:9px 16px;border-radius:999px" style-hover="background:#f2f0ec">도입 문의</a>
+</div>
+</header>
+
+<section style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:clamp(56px,9vw,120px) 28px 40px">
+<div style="display:inline-flex;align-items:center;gap:9px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:oklch(0.78 0.17 58);border:1px solid oklch(0.78 0.17 58 / .35);border-radius:999px;padding:6px 13px">
+<span style="width:6px;height:6px;border-radius:99px;background:oklch(0.78 0.17 58);animation:pulse 1.8s infinite"></span>
+{{ techBadge }}
+</div>
+<h1 style="margin:26px 0 0;font-size:clamp(52px,9.4vw,126px);line-height:1;letter-spacing:-.045em;font-weight:400;text-wrap:balance">
+꺼내지 말고,<br>
+<span style="color:oklch(0.78 0.17 58)">그냥 지나가세요.</span>
+</h1>
+<p style="margin:26px 0 0;max-width:560px;font-size:clamp(19px,2.1vw,27px);line-height:1.55;letter-spacing:-.015em;color:rgba(242,240,236,.68);text-wrap:pretty">
+QR을 띄우려고 멈춰 서는 3초가 도서관 입구의 대기줄을 만듭니다. 패스루는 학생증 인증을 휴대폰 주머니 안에서 끝내고, 개찰구는 걸어오는 속도에 맞춰 미리 열립니다.
+</p>
+<div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:34px">
+<a href="#contact" style="font-size:17px;font-weight:600;color:#0c0b0a;background:oklch(0.78 0.17 58);padding:16px 30px;border-radius:999px" style-hover="background:#f2f0ec">우리 학교에 도입 문의</a>
+<a href="#demo" style="font-size:17px;font-weight:500;color:#f2f0ec;border:1px solid rgba(255,255,255,.18);padding:16px 30px;border-radius:999px" style-hover="border-color:oklch(0.78 0.17 58);color:oklch(0.78 0.17 58)">통과 시뮬레이터 보기</a>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:clamp(24px,5vw,64px);margin-top:56px;padding-top:28px;border-top:1px solid rgba(255,255,255,.08)">
+<div>
+<div style="font-family:'IBM Plex Mono',monospace;font-size:clamp(30px,3.8vw,46px);color:oklch(0.84 0.16 158)">0.4초</div>
+<div style="font-size:14.5px;color:rgba(242,240,236,.5);margin-top:8px">1인 통과 소요 시간(목표)</div>
+</div>
+<div>
+<div style="font-family:'IBM Plex Mono',monospace;font-size:clamp(30px,3.8vw,46px);color:oklch(0.84 0.16 158)">0회</div>
+<div style="font-size:14.5px;color:rgba(242,240,236,.5);margin-top:8px">화면을 켜는 횟수</div>
+</div>
+<div>
+<div style="font-family:'IBM Plex Mono',monospace;font-size:clamp(30px,3.8vw,46px);color:oklch(0.84 0.16 158)">기존 게이트</div>
+<div style="font-size:14.5px;color:rgba(242,240,236,.5);margin-top:8px">교체 없이 리더기만 부착</div>
+</div>
+</div>
+</section>
+
+<section id="demo" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:clamp(40px,6vw,72px) 28px">
+<div style="max-width:760px;margin-bottom:28px">
+<span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:rgba(242,240,236,.4)">00 — BEFORE / AFTER</span>
+<h2 style="margin:14px 0 0;font-size:clamp(37px,5.4vw,67px);line-height:1.04">같은 다섯 명,<br>같은 상황.</h2>
+<p style="margin:16px 0 0;font-size:19px;line-height:1.6;color:rgba(242,240,236,.62);letter-spacing:-.015em">우산을 접고, 폰을 꺼내고, 화면을 보며 걷고, 뒤에서 기다리고, 양손이 가득한 사람. 행동은 그대로 두고 절차만 바꿨습니다.</p>
+</div>
+<div style="border:1px solid rgba(255,255,255,.09);border-radius:22px;background:linear-gradient(180deg,#171614,#101010);overflow:hidden">
+
+<div style="position:relative;height:260px;overflow:hidden;background:repeating-linear-gradient(90deg,rgba(255,255,255,.03) 0 1px,transparent 1px 44px)">
+<div style="position:absolute;left:26px;top:20px;display:flex;align-items:center;gap:12px;z-index:3">
+<span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:oklch(0.78 0.17 58)">QR 개찰</span>
+<span style="font-size:14px;color:rgba(242,240,236,.6)">1인 3~5초 정지 · 뒤로 정체</span>
+</div>
+<div style="position:absolute;left:0;right:0;bottom:22px;height:1px;background:rgba(255,255,255,.12)"></div>
+<div style="position:absolute;left:50%;transform:translateX(-50%);bottom:22px;width:150px;height:112px;pointer-events:none">
+<div style="position:absolute;left:0;bottom:0;width:20px;height:112px;border-radius:5px 5px 0 0;background:#25241f;border:1px solid rgba(255,255,255,.12)"></div>
+<div style="position:absolute;right:0;bottom:0;width:20px;height:112px;border-radius:5px 5px 0 0;background:#25241f;border:1px solid rgba(255,255,255,.12)"></div>
+<div style="position:absolute;left:0;bottom:88px;width:20px;height:6px;border-radius:3px;background:oklch(0.78 0.17 58)"></div>
+<div style="position:absolute;right:0;bottom:88px;width:20px;height:6px;border-radius:3px;background:oklch(0.78 0.17 58)"></div>
+<div style="position:absolute;left:20px;bottom:26px;width:56px;height:44px;background:linear-gradient(90deg,#3b3a33,#2a2924);border:1px solid rgba(255,255,255,.12);transform-origin:left center;transform:rotateY(0deg);animation:qrArmL 13s linear infinite"></div>
+<div style="position:absolute;right:20px;bottom:26px;width:56px;height:44px;background:linear-gradient(270deg,#3b3a33,#2a2924);border:1px solid rgba(255,255,255,.12);transform-origin:right center;transform:rotateY(0deg);animation:qrArmR 13s linear infinite"></div>
+
+</div>
+<div style="position:absolute;bottom:22px;left:-8%;animation:qr1 13s linear infinite">
+<div style="width:22px;height:22px;border-radius:999px;background:#f2f0ec;margin:0 auto 4px"></div>
+<div style="position:relative;width:44px;height:50px;border-radius:15px 15px 6px 6px;background:rgba(242,240,236,.82)">
+<div style="position:absolute;left:50%;top:15px;transform:translateX(-50%);width:20px;height:10px;border-radius:10px 10px 0 0;background:oklch(0.48 0.11 158)"></div><div style="position:absolute;left:calc(50% - 1px);top:25px;width:2px;height:12px;background:oklch(0.48 0.11 158)"></div>
+<div style="position:absolute;left:-6px;top:6px;width:5px;height:30px;border-radius:3px;background:rgba(242,240,236,.6);transform-origin:top center;animation:armA 0.9s ease-in-out infinite alternate"></div>
+<div style="position:absolute;right:-6px;top:6px;width:5px;height:30px;border-radius:3px;background:rgba(242,240,236,.6);transform-origin:top center;animation:armB 0.9s ease-in-out infinite alternate"></div>
+</div>
+<div style="position:relative;width:44px;height:26px">
+<div style="position:absolute;left:10px;top:0;width:6px;height:26px;border-radius:3px;background:rgba(242,240,236,.78);transform-origin:top center;animation:legA 0.9s ease-in-out infinite alternate"></div>
+<div style="position:absolute;right:10px;top:0;width:6px;height:26px;border-radius:3px;background:rgba(242,240,236,.78);transform-origin:top center;animation:legB 0.9s ease-in-out infinite alternate"></div>
+</div>
+</div>
+<div style="position:absolute;bottom:22px;left:-8%;animation:qr2 13s linear infinite">
+<div style="width:22px;height:22px;border-radius:999px;background:#f2f0ec;margin:0 auto 4px"></div>
+<div style="position:relative;width:44px;height:50px;border-radius:15px 15px 6px 6px;background:rgba(242,240,236,.82)">
+<div style="position:absolute;left:50%;top:15px;transform:translateX(-50%);width:12px;height:20px;border-radius:3px;border:1.5px solid oklch(0.48 0.11 158)"></div>
+<div style="position:absolute;left:-6px;top:6px;width:5px;height:30px;border-radius:3px;background:rgba(242,240,236,.6);transform-origin:top center;animation:armA 0.9s ease-in-out infinite alternate"></div>
+<div style="position:absolute;right:-6px;top:6px;width:5px;height:30px;border-radius:3px;background:rgba(242,240,236,.6);transform-origin:top center;animation:armB 0.9s ease-in-out infinite alternate"></div>
+</div>
+<div style="position:relative;width:44px;height:26px">
+<div style="position:absolute;left:10px;top:0;width:6px;height:26px;border-radius:3px;background:rgba(242,240,236,.78);transform-origin:top center;animation:legA 0.9s ease-in-out infinite alternate"></div>
+<div style="position:absolute;right:10px;top:0;width:6px;height:26px;border-radius:3px;background:rgba(242,240,236,.78);transform-origin:top center;animation:legB 0.9s ease-in-out infinite alternate"></div>
+</div>
+</div>
+<div style="position:absolute;bottom:22px;left:-8%;animation:qr3 13s linear infinite">
+<div style="width:22px;height:22px;border-radius:999px;background:#f2f0ec;margin:0 auto 4px"></div>
+<div style="position:relative;width:44px;height:50px;border-radius:15px 15px 6px 6px;background:rgba(242,240,236,.82)">
+<div style="position:absolute;left:50%;top:13px;transform:translateX(-50%);width:13px;height:22px;border-radius:3px;border:1.5px solid oklch(0.48 0.11 158);box-shadow:0 0 12px oklch(0.48 0.11 158 / .55)"></div>
+<div style="position:absolute;left:-6px;top:6px;width:5px;height:30px;border-radius:3px;background:rgba(242,240,236,.6);transform-origin:top center;animation:armA 0.9s ease-in-out infinite alternate"></div>
+<div style="position:absolute;right:-6px;top:6px;width:5px;height:30px;border-radius:3px;background:rgba(242,240,236,.6);transform-origin:top center;animation:armB 0.9s ease-in-out infinite alternate"></div>
+</div>
+<div style="position:relative;width:44px;height:26px">
+<div style="position:absolute;left:10px;top:0;width:6px;height:26px;border-radius:3px;background:rgba(242,240,236,.78);transform-origin:top center;animation:legA 0.9s ease-in-out infinite alternate"></div>
+<div style="position:absolute;right:10px;top:0;width:6px;height:26px;border-radius:3px;background:rgba(242,240,236,.78);transform-origin:top center;animation:legB 0.9s ease-in-out infinite alternate"></div>
+</div>
+</div>
+<div style="position:absolute;bottom:22px;left:-8%;animation:qr4 13s linear infinite">
+<div style="width:22px;height:22px;border-radius:999px;background:#f2f0ec;margin:0 auto 4px"></div>
+<div style="position:relative;width:44px;height:50px;border-radius:15px 15px 6px 6px;background:rgba(242,240,236,.82)">
+<div style="position:absolute;left:50%;top:22px;transform:translateX(-50%);display:flex;gap:4px"><div style="width:4px;height:4px;border-radius:9px;background:oklch(0.48 0.11 158)"></div><div style="width:4px;height:4px;border-radius:9px;background:oklch(0.48 0.11 158)"></div><div style="width:4px;height:4px;border-radius:9px;background:oklch(0.48 0.11 158)"></div></div>
+<div style="position:absolute;left:-6px;top:6px;width:5px;height:30px;border-radius:3px;background:rgba(242,240,236,.6);transform-origin:top center;animation:armA 0.9s ease-in-out infinite alternate"></div>
+<div style="position:absolute;right:-6px;top:6px;width:5px;height:30px;border-radius:3px;background:rgba(242,240,236,.6);transform-origin:top center;animation:armB 0.9s ease-in-out infinite alternate"></div>
+</div>
+<div style="position:relative;width:44px;height:26px">
+<div style="position:absolute;left:10px;top:0;width:6px;height:26px;border-radius:3px;background:rgba(242,240,236,.78);transform-origin:top center;animation:legA 0.9s ease-in-out infinite alternate"></div>
+<div style="position:absolute;right:10px;top:0;width:6px;height:26px;border-radius:3px;background:rgba(242,240,236,.78);transform-origin:top center;animation:legB 0.9s ease-in-out infinite alternate"></div>
+</div>
+</div>
+<div style="position:absolute;bottom:22px;left:-8%;animation:qr5 13s linear infinite">
+<div style="width:22px;height:22px;border-radius:999px;background:#f2f0ec;margin:0 auto 4px"></div>
+<div style="position:relative;width:44px;height:50px;border-radius:15px 15px 6px 6px;background:rgba(242,240,236,.82)">
+<div style="position:absolute;left:9px;top:14px;width:10px;height:18px;border-radius:3px;border:1.5px solid oklch(0.48 0.11 158)"></div><div style="position:absolute;left:8px;top:11px;width:12px;height:3px;border-radius:2px;background:oklch(0.48 0.11 158)"></div><div style="position:absolute;right:8px;top:20px;width:14px;height:12px;border-radius:2px;border:1.5px solid oklch(0.48 0.11 158)"></div>
+<div style="position:absolute;left:-6px;top:6px;width:5px;height:30px;border-radius:3px;background:rgba(242,240,236,.6);transform-origin:top center;animation:armA 0.9s ease-in-out infinite alternate"></div>
+<div style="position:absolute;right:-6px;top:6px;width:5px;height:30px;border-radius:3px;background:rgba(242,240,236,.6);transform-origin:top center;animation:armB 0.9s ease-in-out infinite alternate"></div>
+</div>
+<div style="position:relative;width:44px;height:26px">
+<div style="position:absolute;left:10px;top:0;width:6px;height:26px;border-radius:3px;background:rgba(242,240,236,.78);transform-origin:top center;animation:legA 0.9s ease-in-out infinite alternate"></div>
+<div style="position:absolute;right:10px;top:0;width:6px;height:26px;border-radius:3px;background:rgba(242,240,236,.78);transform-origin:top center;animation:legB 0.9s ease-in-out infinite alternate"></div>
+</div>
+</div>
+</div>
+
+<div style="position:relative;display:flex;align-items:center;gap:16px;padding:0 26px;height:0;z-index:4">
+<div style="position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,oklch(0.78 0.17 58),oklch(0.84 0.16 158))"></div>
+<span style="position:relative;background:#141310;border:1px solid oklch(0.84 0.16 158);color:oklch(0.84 0.16 158);font-size:12.5px;padding:7px 15px;border-radius:999px">여기서부터 패스루</span>
+</div>
+
+<div style="position:relative;height:260px;overflow:hidden;background:repeating-linear-gradient(90deg,rgba(255,255,255,.03) 0 1px,transparent 1px 44px)">
+<div style="position:absolute;left:26px;top:20px;display:flex;align-items:center;gap:12px;z-index:3">
+<span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:oklch(0.84 0.16 158)">패스루</span>
+<span style="font-size:14px;color:rgba(242,240,236,.6)">정지 0초 · 걷는 속도 그대로</span>
+</div>
+<div style="position:absolute;left:0;right:0;bottom:22px;height:1px;background:rgba(255,255,255,.12)"></div>
+<div style="position:absolute;left:50%;transform:translateX(-50%);bottom:22px;width:150px;height:112px;pointer-events:none">
+<div style="position:absolute;left:0;bottom:0;width:20px;height:112px;border-radius:5px 5px 0 0;background:#25241f;border:1px solid rgba(255,255,255,.12)"></div>
+<div style="position:absolute;right:0;bottom:0;width:20px;height:112px;border-radius:5px 5px 0 0;background:#25241f;border:1px solid rgba(255,255,255,.12)"></div>
+<div style="position:absolute;left:0;bottom:88px;width:20px;height:6px;border-radius:3px;background:oklch(0.84 0.16 158)"></div>
+<div style="position:absolute;right:0;bottom:88px;width:20px;height:6px;border-radius:3px;background:oklch(0.84 0.16 158)"></div>
+<div style="position:absolute;left:20px;bottom:26px;width:56px;height:44px;background:linear-gradient(90deg,#3b3a33,#2a2924);border:1px solid rgba(255,255,255,.12);transform-origin:left center;transform:rotateY(84deg)"></div>
+<div style="position:absolute;right:20px;bottom:26px;width:56px;height:44px;background:linear-gradient(270deg,#3b3a33,#2a2924);border:1px solid rgba(255,255,255,.12);transform-origin:right center;transform:rotateY(-84deg)"></div>
+<div style="position:absolute;inset:0;background:radial-gradient(90px 70px at 50% 60%, oklch(0.84 0.16 158 / .22), transparent 70%)"></div>
+</div>
+<div style="position:absolute;bottom:22px;left:-8%;animation:flow 9s linear infinite 0.00s">
+<div style="width:22px;height:22px;border-radius:999px;background:#f2f0ec;margin:0 auto 4px"></div>
+<div style="position:relative;width:44px;height:50px;border-radius:15px 15px 6px 6px;background:rgba(242,240,236,.82)">
+<div style="position:absolute;left:50%;top:15px;transform:translateX(-50%);width:20px;height:10px;border-radius:10px 10px 0 0;background:oklch(0.48 0.11 158)"></div><div style="position:absolute;left:calc(50% - 1px);top:25px;width:2px;height:12px;background:oklch(0.48 0.11 158)"></div>
+<div style="position:absolute;left:-6px;top:6px;width:5px;height:30px;border-radius:3px;background:rgba(242,240,236,.6);transform-origin:top center;animation:armA 0.5s ease-in-out infinite alternate"></div>
+<div style="position:absolute;right:-6px;top:6px;width:5px;height:30px;border-radius:3px;background:rgba(242,240,236,.6);transform-origin:top center;animation:armB 0.5s ease-in-out infinite alternate"></div>
+</div>
+<div style="position:relative;width:44px;height:26px">
+<div style="position:absolute;left:10px;top:0;width:6px;height:26px;border-radius:3px;background:rgba(242,240,236,.78);transform-origin:top center;animation:legA 0.5s ease-in-out infinite alternate"></div>
+<div style="position:absolute;right:10px;top:0;width:6px;height:26px;border-radius:3px;background:rgba(242,240,236,.78);transform-origin:top center;animation:legB 0.5s ease-in-out infinite alternate"></div>
+</div>
+</div>
+<div style="position:absolute;bottom:22px;left:-8%;animation:flow 9s linear infinite 1.15s">
+<div style="width:22px;height:22px;border-radius:999px;background:#f2f0ec;margin:0 auto 4px"></div>
+<div style="position:relative;width:44px;height:50px;border-radius:15px 15px 6px 6px;background:rgba(242,240,236,.82)">
+<div style="position:absolute;left:50%;top:15px;transform:translateX(-50%);width:12px;height:20px;border-radius:3px;border:1.5px solid oklch(0.48 0.11 158)"></div>
+<div style="position:absolute;left:-6px;top:6px;width:5px;height:30px;border-radius:3px;background:rgba(242,240,236,.6);transform-origin:top center;animation:armA 0.5s ease-in-out infinite alternate"></div>
+<div style="position:absolute;right:-6px;top:6px;width:5px;height:30px;border-radius:3px;background:rgba(242,240,236,.6);transform-origin:top center;animation:armB 0.5s ease-in-out infinite alternate"></div>
+</div>
+<div style="position:relative;width:44px;height:26px">
+<div style="position:absolute;left:10px;top:0;width:6px;height:26px;border-radius:3px;background:rgba(242,240,236,.78);transform-origin:top center;animation:legA 0.5s ease-in-out infinite alternate"></div>
+<div style="position:absolute;right:10px;top:0;width:6px;height:26px;border-radius:3px;background:rgba(242,240,236,.78);transform-origin:top center;animation:legB 0.5s ease-in-out infinite alternate"></div>
+</div>
+</div>
+<div style="position:absolute;bottom:22px;left:-8%;animation:flow 9s linear infinite 2.30s">
+<div style="width:22px;height:22px;border-radius:999px;background:#f2f0ec;margin:0 auto 4px"></div>
+<div style="position:relative;width:44px;height:50px;border-radius:15px 15px 6px 6px;background:rgba(242,240,236,.82)">
+<div style="position:absolute;left:50%;top:13px;transform:translateX(-50%);width:13px;height:22px;border-radius:3px;border:1.5px solid oklch(0.48 0.11 158);box-shadow:0 0 12px oklch(0.48 0.11 158 / .55)"></div>
+<div style="position:absolute;left:-6px;top:6px;width:5px;height:30px;border-radius:3px;background:rgba(242,240,236,.6);transform-origin:top center;animation:armA 0.5s ease-in-out infinite alternate"></div>
+<div style="position:absolute;right:-6px;top:6px;width:5px;height:30px;border-radius:3px;background:rgba(242,240,236,.6);transform-origin:top center;animation:armB 0.5s ease-in-out infinite alternate"></div>
+</div>
+<div style="position:relative;width:44px;height:26px">
+<div style="position:absolute;left:10px;top:0;width:6px;height:26px;border-radius:3px;background:rgba(242,240,236,.78);transform-origin:top center;animation:legA 0.5s ease-in-out infinite alternate"></div>
+<div style="position:absolute;right:10px;top:0;width:6px;height:26px;border-radius:3px;background:rgba(242,240,236,.78);transform-origin:top center;animation:legB 0.5s ease-in-out infinite alternate"></div>
+</div>
+</div>
+<div style="position:absolute;bottom:22px;left:-8%;animation:flow 9s linear infinite 3.45s">
+<div style="width:22px;height:22px;border-radius:999px;background:#f2f0ec;margin:0 auto 4px"></div>
+<div style="position:relative;width:44px;height:50px;border-radius:15px 15px 6px 6px;background:rgba(242,240,236,.82)">
+<div style="position:absolute;left:50%;top:22px;transform:translateX(-50%);display:flex;gap:4px"><div style="width:4px;height:4px;border-radius:9px;background:oklch(0.48 0.11 158)"></div><div style="width:4px;height:4px;border-radius:9px;background:oklch(0.48 0.11 158)"></div><div style="width:4px;height:4px;border-radius:9px;background:oklch(0.48 0.11 158)"></div></div>
+<div style="position:absolute;left:-6px;top:6px;width:5px;height:30px;border-radius:3px;background:rgba(242,240,236,.6);transform-origin:top center;animation:armA 0.5s ease-in-out infinite alternate"></div>
+<div style="position:absolute;right:-6px;top:6px;width:5px;height:30px;border-radius:3px;background:rgba(242,240,236,.6);transform-origin:top center;animation:armB 0.5s ease-in-out infinite alternate"></div>
+</div>
+<div style="position:relative;width:44px;height:26px">
+<div style="position:absolute;left:10px;top:0;width:6px;height:26px;border-radius:3px;background:rgba(242,240,236,.78);transform-origin:top center;animation:legA 0.5s ease-in-out infinite alternate"></div>
+<div style="position:absolute;right:10px;top:0;width:6px;height:26px;border-radius:3px;background:rgba(242,240,236,.78);transform-origin:top center;animation:legB 0.5s ease-in-out infinite alternate"></div>
+</div>
+</div>
+<div style="position:absolute;bottom:22px;left:-8%;animation:flow 9s linear infinite 4.60s">
+<div style="width:22px;height:22px;border-radius:999px;background:#f2f0ec;margin:0 auto 4px"></div>
+<div style="position:relative;width:44px;height:50px;border-radius:15px 15px 6px 6px;background:rgba(242,240,236,.82)">
+<div style="position:absolute;left:9px;top:14px;width:10px;height:18px;border-radius:3px;border:1.5px solid oklch(0.48 0.11 158)"></div><div style="position:absolute;left:8px;top:11px;width:12px;height:3px;border-radius:2px;background:oklch(0.48 0.11 158)"></div><div style="position:absolute;right:8px;top:20px;width:14px;height:12px;border-radius:2px;border:1.5px solid oklch(0.48 0.11 158)"></div>
+<div style="position:absolute;left:-6px;top:6px;width:5px;height:30px;border-radius:3px;background:rgba(242,240,236,.6);transform-origin:top center;animation:armA 0.5s ease-in-out infinite alternate"></div>
+<div style="position:absolute;right:-6px;top:6px;width:5px;height:30px;border-radius:3px;background:rgba(242,240,236,.6);transform-origin:top center;animation:armB 0.5s ease-in-out infinite alternate"></div>
+</div>
+<div style="position:relative;width:44px;height:26px">
+<div style="position:absolute;left:10px;top:0;width:6px;height:26px;border-radius:3px;background:rgba(242,240,236,.78);transform-origin:top center;animation:legA 0.5s ease-in-out infinite alternate"></div>
+<div style="position:absolute;right:10px;top:0;width:6px;height:26px;border-radius:3px;background:rgba(242,240,236,.78);transform-origin:top center;animation:legB 0.5s ease-in-out infinite alternate"></div>
+</div>
+</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:10px;padding:20px 26px;border-top:1px solid rgba(255,255,255,.07)"><span style="font-size:12.5px;color:rgba(242,240,236,.5);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:7px 14px">우산을 접는 사람</span><span style="font-size:12.5px;color:rgba(242,240,236,.5);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:7px 14px">주머니에서 폰을 꺼내는 사람</span><span style="font-size:12.5px;color:rgba(242,240,236,.5);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:7px 14px">폰을 보며 걷는 사람</span><span style="font-size:12.5px;color:rgba(242,240,236,.5);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:7px 14px">뒤에서 기다리는 사람</span><span style="font-size:12.5px;color:rgba(242,240,236,.5);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:7px 14px">양손에 텀블러와 짐</span></div>
+</div>
+</section>
+
+<section id="problem" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:clamp(56px,8vw,110px) 28px">
+<div style="max-width:640px;animation:rise linear both;animation-timeline:view();animation-range:entry 4% cover 28%">
+<span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:rgba(242,240,236,.4)">01 — PROBLEM</span>
+<h2 style="margin:16px 0 0;font-size:clamp(39px,5.8vw,74px);line-height:1.06;letter-spacing:-.04em;font-weight:400">입구에서 멈추는 3초가<br>모두의 20분이 됩니다.</h2>
+<p style="margin:20px 0 0;font-size:22px;line-height:1.6;letter-spacing:-.015em;color:rgba(242,240,236,.62);text-wrap:pretty">시험기간 오전 9시, 도서관 입구는 잠금화면을 여는 손과 밝기를 올리는 손으로 정체됩니다. 문제는 인증 기술이 아니라 <span style="color:#f2f0ec">한 손을 반드시 비워야 하는 절차</span>입니다.</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:44px">
+<div style="border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:26px;background:#141310;animation:rise linear both;animation-timeline:view();animation-range:entry 2% cover 24%">
+<div style="font-family:'IBM Plex Mono',monospace;font-size:28px;color:oklch(0.78 0.17 58)">▮▮▮▮</div>
+<div style="margin-top:20px;font-size:21px;font-weight:400;letter-spacing:-.02em">대기줄</div>
+<p style="margin:10px 0 0;font-size:17px;line-height:1.6;color:rgba(242,240,236,.55)">한 명당 앱 실행·QR 표시·정렬에 3~5초. 뒤에 열 명이면 입구에서 1분이 사라집니다.</p>
+</div>
+<div style="border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:26px;background:#141310;animation:rise linear both;animation-timeline:view();animation-range:entry 2% cover 26%">
+<div style="font-family:'IBM Plex Mono',monospace;font-size:28px;color:oklch(0.78 0.17 58)">☂</div>
+<div style="margin-top:20px;font-size:21px;font-weight:400;letter-spacing:-.02em">비 오는 날</div>
+<p style="margin:10px 0 0;font-size:17px;line-height:1.6;color:rgba(242,240,236,.55)">우산을 든 손으로는 휴대폰을 꺼낼 수 없습니다. 젖은 화면은 터치도 인식도 되지 않습니다.</p>
+</div>
+<div style="border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:26px;background:#141310;animation:rise linear both;animation-timeline:view();animation-range:entry 2% cover 28%">
+<div style="font-family:'IBM Plex Mono',monospace;font-size:28px;color:oklch(0.78 0.17 58)">◍ ▤</div>
+<div style="margin-top:20px;font-size:21px;font-weight:400;letter-spacing:-.02em">텀블러와 노트북 가방</div>
+<p style="margin:10px 0 0;font-size:17px;line-height:1.6;color:rgba(242,240,236,.55)">양손이 이미 차 있는 상태가 기본값입니다. 짐을 바닥에 내려놓는 사람이 줄의 병목이 됩니다.</p>
+</div>
+</div>
+</section>
+
+<section id="how" style="position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.07);background:#100f0d">
+<div style="max-width:1180px;margin:0 auto;padding:clamp(56px,8vw,110px) 28px">
+<div style="max-width:640px">
+<span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:rgba(242,240,236,.4)">02 — HOW IT WORKS</span>
+<h2 style="margin:16px 0 0;font-size:clamp(39px,5.8vw,74px);line-height:1.06;letter-spacing:-.04em;font-weight:400">주머니 속에서 끝나는 인증</h2>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0;margin-top:48px;border-top:1px solid rgba(255,255,255,.09)">
+<div style="padding:30px 28px 30px 0;border-right:1px solid rgba(255,255,255,.09);animation:rise linear both;animation-timeline:view();animation-range:entry 2% cover 24%">
+<div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:oklch(0.78 0.17 58);letter-spacing:.1em">STEP 01</div>
+<div style="margin-top:16px;font-size:25px;font-weight:400;letter-spacing:-.02em">한 번만 등록</div>
+<p style="margin:12px 0 0;font-size:18px;line-height:1.65;color:rgba(242,240,236,.58)">학교 계정으로 로그인하고 이 기기를 내 학생증으로 등록합니다. 이후 앱을 다시 열 일은 없습니다.</p>
+</div>
+<div style="padding:30px 28px;border-right:1px solid rgba(255,255,255,.09);animation:rise linear both;animation-timeline:view();animation-range:entry 2% cover 26%">
+<div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:oklch(0.78 0.17 58);letter-spacing:.1em">STEP 02</div>
+<div style="margin-top:16px;font-size:25px;font-weight:400;letter-spacing:-.02em">{{ stepTitle }}</div>
+<p style="margin:12px 0 0;font-size:18px;line-height:1.65;color:rgba(242,240,236,.58)">{{ stepBody }}</p>
+</div>
+<div style="padding:30px 0 30px 28px;animation:rise linear both;animation-timeline:view();animation-range:entry 2% cover 28%">
+<div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:oklch(0.78 0.17 58);letter-spacing:.1em">STEP 03</div>
+<div style="margin-top:16px;font-size:25px;font-weight:400;letter-spacing:-.02em">멈추지 않고 통과</div>
+<p style="margin:12px 0 0;font-size:18px;line-height:1.65;color:rgba(242,240,236,.58)">게이트는 도착 0.4초 전에 열립니다. 통과 기록은 진동 한 번으로만 알려주고 화면은 계속 꺼져 있습니다.</p>
+</div>
+</div>
+<div style="margin-top:40px;display:flex;flex-wrap:wrap;gap:10px">
+<span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:rgba(242,240,236,.5);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:7px 14px">화면 꺼진 상태 동작</span>
+<span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:rgba(242,240,236,.5);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:7px 14px">배터리 1% 미만/일</span>
+<span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:rgba(242,240,236,.5);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:7px 14px">iOS · Android</span>
+<span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:rgba(242,240,236,.5);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:7px 14px">오프라인 통과 지원</span>
+</div>
+</div>
+</section>
+
+<section id="compare" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:clamp(56px,8vw,110px) 28px">
+<span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:rgba(242,240,236,.4)">03 — COMPARISON</span>
+<h2 style="margin:16px 0 40px;font-size:clamp(39px,5.8vw,74px);line-height:1.06;letter-spacing:-.04em;font-weight:400">QR 방식과 무엇이 다른가</h2>
+<div data-r="table" style="display:grid;grid-template-columns:1.1fr 1fr 1fr;border:1px solid rgba(255,255,255,.09);border-radius:16px;overflow:hidden;font-size:14.5px">
+<div data-r="thead" style="padding:16px 22px;background:#141310;color:rgba(242,240,236,.45);font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em">항목</div>
+<div data-r="thead" style="padding:16px 22px;background:#141310;color:rgba(242,240,236,.6);font-weight:500">기존 QR 개찰구</div>
+<div data-r="thead" style="padding:16px 22px;background:oklch(0.84 0.16 158 / .1);color:oklch(0.86 0.15 158);font-weight:400">패스루</div>
+
+<div data-r="tlabel" style="padding:18px 22px;border-top:1px solid rgba(255,255,255,.07);color:rgba(242,240,236,.75)">필요한 동작</div>
+<div data-r="tcell" data-k="기존 QR" style="padding:18px 22px;border-top:1px solid rgba(255,255,255,.07);color:rgba(242,240,236,.55)">꺼내기 → 잠금해제 → 앱 → 조준</div>
+<div data-r="tcell" data-k="패스루" style="padding:18px 22px;border-top:1px solid rgba(255,255,255,.07);background:oklch(0.84 0.16 158 / .05)">걷기</div>
+
+<div data-r="tlabel" style="padding:18px 22px;border-top:1px solid rgba(255,255,255,.07);color:rgba(242,240,236,.75)">양손이 찬 상태</div>
+<div data-r="tcell" data-k="기존 QR" style="padding:18px 22px;border-top:1px solid rgba(255,255,255,.07);color:rgba(242,240,236,.55)">불가 — 짐을 내려놓아야 함</div>
+<div data-r="tcell" data-k="패스루" style="padding:18px 22px;border-top:1px solid rgba(255,255,255,.07);background:oklch(0.84 0.16 158 / .05)">그대로 통과</div>
+
+<div data-r="tlabel" style="padding:18px 22px;border-top:1px solid rgba(255,255,255,.07);color:rgba(242,240,236,.75)">우천·장갑·젖은 화면</div>
+<div data-r="tcell" data-k="기존 QR" style="padding:18px 22px;border-top:1px solid rgba(255,255,255,.07);color:rgba(242,240,236,.55)">인식 실패 빈발</div>
+<div data-r="tcell" data-k="패스루" style="padding:18px 22px;border-top:1px solid rgba(255,255,255,.07);background:oklch(0.84 0.16 158 / .05)">영향 없음</div>
+
+<div data-r="tlabel" style="padding:18px 22px;border-top:1px solid rgba(255,255,255,.07);color:rgba(242,240,236,.75)">혼잡시간 처리량</div>
+<div data-r="tcell" data-k="기존 QR" style="padding:18px 22px;border-top:1px solid rgba(255,255,255,.07);color:rgba(242,240,236,.55)">한 줄로 직렬 처리</div>
+<div data-r="tcell" data-k="패스루" style="padding:18px 22px;border-top:1px solid rgba(255,255,255,.07);background:oklch(0.84 0.16 158 / .05)">연속 통과, 병목 해소</div>
+
+<div data-r="tlabel" style="padding:18px 22px;border-top:1px solid rgba(255,255,255,.07);color:rgba(242,240,236,.75)">기존 설비</div>
+<div data-r="tcell" data-k="기존 QR" style="padding:18px 22px;border-top:1px solid rgba(255,255,255,.07);color:rgba(242,240,236,.55)">QR 리더 유지</div>
+<div data-r="tcell" data-k="패스루" style="padding:18px 22px;border-top:1px solid rgba(255,255,255,.07);background:oklch(0.84 0.16 158 / .05)">게이트 교체 없이 리더기만 추가</div>
+
+<div data-r="tlabel" style="padding:18px 22px;border-top:1px solid rgba(255,255,255,.07);color:rgba(242,240,236,.75)">대체 수단</div>
+<div data-r="tcell" data-k="기존 QR" style="padding:18px 22px;border-top:1px solid rgba(255,255,255,.07);color:rgba(242,240,236,.55)">실물 학생증</div>
+<div data-r="tcell" data-k="패스루" style="padding:18px 22px;border-top:1px solid rgba(255,255,255,.07);background:oklch(0.84 0.16 158 / .05)">QR·학생증 그대로 병행 사용</div>
+</div>
+<p style="margin:16px 0 0;font-size:12.5px;color:rgba(242,240,236,.35)">※ 표의 수치와 효과는 파일럿 목표치이며, 실제 값은 학교별 게이트 구성에 따라 달라집니다.</p>
+</section>
+
+<section id="app" style="position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.07);background:#100f0d">
+<div style="max-width:1180px;margin:0 auto;padding:clamp(56px,8vw,110px) 28px">
+<span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:rgba(242,240,236,.4)">04 — THE APP</span>
+<h2 style="margin:16px 0 12px;font-size:clamp(39px,5.8vw,74px);line-height:1.06;letter-spacing:-.04em;font-weight:400">거의 열지 않게 만든 앱</h2>
+<p style="margin:0;max-width:600px;font-size:22px;line-height:1.6;letter-spacing:-.015em;color:rgba(242,240,236,.6)">앱의 목표는 사용 시간을 늘리는 것이 아니라 0에 가깝게 줄이는 것입니다. 세 화면이면 충분합니다.</p>
+
+<div style="display:flex;flex-wrap:wrap;gap:36px;margin-top:52px">
+
+<div style="display:flex;flex-direction:column;gap:14px;animation:rise linear both;animation-timeline:view();animation-range:entry 2% cover 24%">
+<div style="width:288px;height:590px;border-radius:44px;background:#000;border:1px solid rgba(255,255,255,.14);padding:11px;box-shadow:0 30px 60px rgba(0,0,0,.5)">
+<div style="width:100%;height:100%;border-radius:34px;background:linear-gradient(180deg,#0f1512,#0b0b0a);overflow:hidden;display:flex;flex-direction:column;position:relative">
+<div style="display:flex;justify-content:space-between;padding:16px 22px 0;font-size:12px;color:rgba(242,240,236,.6);font-family:'IBM Plex Mono',monospace">
+<span>9:04</span><span>▮▮ ◗</span>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;padding:0 26px">
+<div style="position:relative;width:132px;height:132px;display:flex;align-items:center;justify-content:center">
+<div style="position:absolute;inset:0;border-radius:999px;border:1px solid oklch(0.78 0.17 58 / .35);animation:pulse 2.4s infinite"></div>
+<div style="position:absolute;inset:22px;border-radius:999px;border:1px solid oklch(0.78 0.17 58 / .5)"></div>
+<div style="width:56px;height:56px;border-radius:999px;background:oklch(0.84 0.16 158)"></div>
+</div>
+<div style="text-align:center">
+<div style="font-size:21px;font-weight:400;letter-spacing:-.02em">통과 준비됨</div>
+<div style="margin-top:8px;font-size:13.5px;line-height:1.6;color:rgba(242,240,236,.5)">중앙도서관 1층 게이트<br>그대로 걸어 들어가세요</div>
+</div>
+</div>
+<div style="padding:18px 22px 26px;display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.05);border-radius:12px;padding:13px 15px;font-size:13px">
+<span style="color:rgba(242,240,236,.6)">오늘 입장</span><span style="font-family:'IBM Plex Mono',monospace">09:04 · 0.4s</span>
+</div>
+<div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.05);border-radius:12px;padding:13px 15px;font-size:13px">
+<span style="color:rgba(242,240,236,.6)">3층 열람실 잔여</span><span style="font-family:'IBM Plex Mono',monospace;color:oklch(0.84 0.16 158)">42석</span>
+</div>
+</div>
+</div>
+</div>
+<div style="font-size:13.5px;color:rgba(242,240,236,.5);max-width:288px">홈 — 평소엔 볼 일 없는 화면. 위젯과 잠금화면에서 상태만 확인합니다.</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:14px;animation:rise linear both;animation-timeline:view();animation-range:entry 2% cover 26%">
+<div style="width:288px;height:590px;border-radius:44px;background:#000;border:1px solid rgba(255,255,255,.14);padding:11px;box-shadow:0 30px 60px rgba(0,0,0,.5)">
+<div style="width:100%;height:100%;border-radius:34px;background:#0b0b0a;overflow:hidden;display:flex;flex-direction:column">
+<div style="display:flex;justify-content:space-between;padding:16px 22px 0;font-size:12px;color:rgba(242,240,236,.6);font-family:'IBM Plex Mono',monospace">
+<span>9:04</span><span>▮▮ ◗</span>
+</div>
+<div style="padding:26px 22px 14px">
+<div style="font-size:19px;font-weight:400;letter-spacing:-.02em">기기 등록</div>
+<div style="margin-top:6px;font-size:13px;color:rgba(242,240,236,.45)">1회만 진행하면 됩니다</div>
+</div>
+<div style="padding:0 22px;display:flex;flex-direction:column;gap:11px">
+<div style="border:1px solid oklch(0.78 0.17 58 / .4);background:oklch(0.78 0.17 58 / .07);border-radius:14px;padding:15px">
+<div style="display:flex;justify-content:space-between;font-size:13.5px"><span>학교 계정 로그인</span><span style="color:oklch(0.78 0.17 58)">완료</span></div>
+<div style="margin-top:5px;font-size:11.5px;color:rgba(242,240,236,.4);font-family:'IBM Plex Mono',monospace">2021xxxxx@univ.ac.kr</div>
+</div>
+<div style="border:1px solid oklch(0.78 0.17 58 / .4);background:oklch(0.78 0.17 58 / .07);border-radius:14px;padding:15px;display:flex;justify-content:space-between;font-size:13.5px"><span>기기 신뢰 등록</span><span style="color:oklch(0.78 0.17 58)">완료</span></div>
+<div style="border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:15px;display:flex;justify-content:space-between;font-size:13.5px"><span>근접 통과 권한 허용</span><span style="color:rgba(242,240,236,.4)">대기</span></div>
+</div>
+<div style="margin-top:auto;padding:22px;display:flex;flex-direction:column;gap:12px">
+<div style="font-size:11.5px;line-height:1.6;color:rgba(242,240,236,.38)">위치 좌표는 저장하지 않습니다. 게이트 근처에서만 익명 토큰이 교환됩니다.</div>
+<div style="text-align:center;font-size:15px;font-weight:600;color:#0c0b0a;background:oklch(0.78 0.17 58);border-radius:14px;padding:15px">권한 허용하고 시작</div>
+</div>
+</div>
+</div>
+<div style="font-size:13.5px;color:rgba(242,240,236,.5);max-width:288px">온보딩 — 세 단계, 40초. 권한의 이유를 그 자리에서 설명합니다.</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:14px;animation:rise linear both;animation-timeline:view();animation-range:entry 2% cover 28%">
+<div style="width:288px;height:590px;border-radius:44px;background:#000;border:1px solid rgba(255,255,255,.14);padding:11px;box-shadow:0 30px 60px rgba(0,0,0,.5)">
+<div style="width:100%;height:100%;border-radius:34px;background:#0b0b0a;overflow:hidden;display:flex;flex-direction:column">
+<div style="display:flex;justify-content:space-between;padding:16px 22px 0;font-size:12px;color:rgba(242,240,236,.6);font-family:'IBM Plex Mono',monospace">
+<span>21:40</span><span>▮▮ ◗</span>
+</div>
+<div style="padding:26px 22px 16px">
+<div style="font-size:19px;font-weight:400;letter-spacing:-.02em">출입 기록</div>
+<div style="margin-top:6px;font-size:13px;color:rgba(242,240,236,.45)">기기에만 저장 · 30일 후 자동 삭제</div>
+</div>
+<div style="padding:0 22px;display:flex;flex-direction:column;gap:2px">
+<div style="display:flex;gap:12px;padding:14px 0;border-top:1px solid rgba(255,255,255,.08)">
+<span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:rgba(242,240,236,.4);width:44px">21:38</span>
+<div style="flex:1"><div style="font-size:13.5px">퇴장 · 중앙도서관</div><div style="font-size:11.5px;color:rgba(242,240,236,.35);margin-top:3px">체류 12시간 34분</div></div>
+</div>
+<div style="display:flex;gap:12px;padding:14px 0;border-top:1px solid rgba(255,255,255,.08)">
+<span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:rgba(242,240,236,.4);width:44px">09:04</span>
+<div style="flex:1"><div style="font-size:13.5px">입장 · 중앙도서관 1층</div><div style="font-size:11.5px;color:oklch(0.84 0.16 158);margin-top:3px">무정지 통과 0.4초</div></div>
+</div>
+<div style="display:flex;gap:12px;padding:14px 0;border-top:1px solid rgba(255,255,255,.08)">
+<span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:rgba(242,240,236,.4);width:44px">어제</span>
+<div style="flex:1"><div style="font-size:13.5px">입장 · 법학도서관</div><div style="font-size:11.5px;color:rgba(242,240,236,.35);margin-top:3px">무정지 통과 0.5초</div></div>
+</div>
+</div>
+<div style="margin:auto 22px 26px;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px">
+<div style="font-size:13px;color:rgba(242,240,236,.6)">이번 학기 절약한 대기 시간</div>
+<div style="margin-top:8px;font-family:'IBM Plex Mono',monospace;font-size:30px;color:oklch(0.84 0.16 158)">1시간 12분</div>
+</div>
+</div>
+</div>
+<div style="font-size:13.5px;color:rgba(242,240,236,.5);max-width:288px">기록 — 학교 서버가 아니라 내 기기에 남습니다. 필요하면 전체 삭제.</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="faq" style="position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.07);background:#100f0d">
+<div style="max-width:900px;margin:0 auto;padding:clamp(56px,8vw,100px) 28px">
+<span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:rgba(242,240,236,.4)">05 — FAQ</span>
+<h2 style="margin:16px 0 36px;font-size:clamp(37px,5vw,63px);line-height:1.08;letter-spacing:-.04em;font-weight:400">자주 묻는 질문</h2>
+
+<details style="border-top:1px solid rgba(255,255,255,.1)">
+<summary style="list-style:none;cursor:pointer;padding:22px 0;display:flex;gap:16px;font-size:19.5px;font-weight:500;letter-spacing:-.02em" style-hover="color:oklch(0.78 0.17 58)"><span style="color:oklch(0.78 0.17 58);font-family:'IBM Plex Mono',monospace;font-size:13px;padding-top:4px">＋</span>휴대폰 배터리가 없으면 못 들어가나요?</summary>
+<p style="margin:0 0 22px 32px;font-size:18px;line-height:1.7;color:rgba(242,240,236,.6)">기존 QR과 실물 학생증 인증은 그대로 유지됩니다. 패스루는 추가 통로가 아니라 추가 선택지입니다. 저전력 모드에서도 무정지 통과는 동작합니다.</p>
+</details>
+<details style="border-top:1px solid rgba(255,255,255,.1)">
+<summary style="list-style:none;cursor:pointer;padding:22px 0;display:flex;gap:16px;font-size:19.5px;font-weight:500;letter-spacing:-.02em" style-hover="color:oklch(0.78 0.17 58)"><span style="color:oklch(0.78 0.17 58);font-family:'IBM Plex Mono',monospace;font-size:13px;padding-top:4px">＋</span>다른 사람이 뒤에 붙어서 같이 들어가면요?</summary>
+<p style="margin:0 0 22px 32px;font-size:18px;line-height:1.7;color:rgba(242,240,236,.6)">게이트의 통과 감지 센서와 인증 토큰 수를 대조해, 인증되지 않은 동반 통과가 감지되면 기록을 남기고 안내 음성이 재생됩니다. 게이트 자체의 1인 통과 로직은 변경하지 않습니다.</p>
+</details>
+<details style="border-top:1px solid rgba(255,255,255,.1)">
+<summary style="list-style:none;cursor:pointer;padding:22px 0;display:flex;gap:16px;font-size:19.5px;font-weight:500;letter-spacing:-.02em" style-hover="color:oklch(0.78 0.17 58)"><span style="color:oklch(0.78 0.17 58);font-family:'IBM Plex Mono',monospace;font-size:13px;padding-top:4px">＋</span>휴대폰을 빌려주면 대리 출입이 가능한가요?</summary>
+<p style="margin:0 0 22px 32px;font-size:18px;line-height:1.7;color:rgba(242,240,236,.6)">등록은 기기 1대로 제한되고, 기기 잠금 해제 상태·보행 패턴 등 신뢰 신호가 끊기면 통과 권한이 잠깁니다. 재등록 시에는 학교 계정 재인증이 필요합니다.</p>
+</details>
+<details style="border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1)">
+<summary style="list-style:none;cursor:pointer;padding:22px 0;display:flex;gap:16px;font-size:19.5px;font-weight:500;letter-spacing:-.02em" style-hover="color:oklch(0.78 0.17 58)"><span style="color:oklch(0.78 0.17 58);font-family:'IBM Plex Mono',monospace;font-size:13px;padding-top:4px">＋</span>도서관 설비를 다 바꿔야 하나요?</summary>
+<p style="margin:0 0 22px 32px;font-size:18px;line-height:1.7;color:rgba(242,240,236,.6)">기존 개찰구를 유지한 채 리더 모듈을 부착하고 출입 시스템과 연동합니다. 게이트 1대 기준 설치는 반나절, 파일럿은 통로 2개부터 시작할 수 있습니다.</p>
+</details>
+</div>
+</section>
+
+<section id="signup" style="position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.07);background:#100f0d">
+<div style="max-width:1180px;margin:0 auto;padding:clamp(56px,8vw,100px) 28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:clamp(28px,5vw,64px);align-items:start">
+<div>
+<span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:oklch(0.84 0.16 158)">06 — 학생 사전 신청</span>
+<h2 style="margin:16px 0 0;font-size:clamp(35px,4.8vw,60px);line-height:1.05;letter-spacing:-.04em;font-weight:400;text-wrap:balance">우리 학교에 열리면 가장 먼저 쓰고 싶다면</h2>
+<p style="margin:20px 0 0;font-size:21px;line-height:1.6;color:rgba(242,240,236,.62);letter-spacing:-.015em">사전 신청한 학교 순서로 파일럿 통로를 배정합니다. 신청자 수는 학교 담당자에게 익명 집계로만 전달됩니다.</p>
+<div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:26px">
+<span style="font-size:13px;color:rgba(242,240,236,.5);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:8px 15px">베타 우선 초대</span>
+<span style="font-size:13px;color:rgba(242,240,236,.5);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:8px 15px">개설 시 알림</span>
+<span style="font-size:13px;color:rgba(242,240,236,.5);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:8px 15px">언제든 신청 취소</span>
+</div>
+</div>
+<sc-if value="{{ preSent }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;flex-direction:column;gap:12px;border:1px solid oklch(0.84 0.16 158 / .4);border-radius:16px;padding:32px;background:rgba(0,0,0,.25)">
+<div style="font-size:22px;font-weight:400;color:oklch(0.86 0.15 158)">사전 신청 완료</div>
+<div style="font-size:17px;line-height:1.7;color:rgba(242,240,236,.6)">우리 학교에 통로가 열리면 학교 이메일로 가장 먼저 알려드립니다.</div>
+<button onClick="{{ preReset }}" style="align-self:flex-start;margin-top:8px;background:none;border:1px solid rgba(255,255,255,.2);color:#f2f0ec;font-size:14px;padding:11px 17px;border-radius:999px;cursor:pointer">다른 학생 신청</button>
+</div>
+</sc-if>
+<sc-if value="{{ preNotSent }}" hint-placeholder-val="{{ true }}">
+<div style="display:flex;flex-direction:column;gap:12px;border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:clamp(22px,3vw,32px);background:#141310">
+<label style="display:flex;flex-direction:column;gap:7px;font-size:13px;color:rgba(242,240,236,.5)">이름
+<input value="{{ preName }}" onChange="{{ setPreName }}" placeholder="홍길동" style="background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.15);border-radius:11px;padding:14px 15px;color:#f2f0ec;font-size:16px;outline:none" style-focus="border-color:oklch(0.84 0.16 158)">
+</label>
+<label style="display:flex;flex-direction:column;gap:7px;font-size:13px;color:rgba(242,240,236,.5)">학교 · 주로 쓰는 도서관
+<input value="{{ preUniv }}" onChange="{{ setPreUniv }}" placeholder="○○대학교 중앙도서관" style="background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.15);border-radius:11px;padding:14px 15px;color:#f2f0ec;font-size:16px;outline:none" style-focus="border-color:oklch(0.84 0.16 158)">
+</label>
+<label style="display:flex;flex-direction:column;gap:7px;font-size:13px;color:rgba(242,240,236,.5)">학교 이메일
+<input value="{{ preMail }}" onChange="{{ setPreMail }}" placeholder="2026xxxxx@univ.ac.kr" style="background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.15);border-radius:11px;padding:14px 15px;color:#f2f0ec;font-size:16px;outline:none" style-focus="border-color:oklch(0.84 0.16 158)">
+</label>
+<label style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(242,240,236,.6);cursor:pointer">
+<input type="checkbox" checked="{{ preAgree }}" onChange="{{ togglePreAgree }}" style="width:18px;height:18px;accent-color:oklch(0.84 0.16 158)">개설 알림 수신에 동의합니다
+</label>
+<div style="font-size:13px;color:oklch(0.7 0.19 25);min-height:18px">{{ preError }}</div>
+<button onClick="{{ preSubmit }}" style="font-size:17px;font-weight:400;color:#0c0b0a;background:oklch(0.84 0.16 158);border:none;padding:17px;border-radius:12px;cursor:pointer" style-hover="background:#f2f0ec">사전 신청하기</button>
+</div>
+</sc-if>
+</div>
+</section>
+
+<section id="contact" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:clamp(56px,8vw,120px) 28px">
+<div style="border:1px solid oklch(0.78 0.17 58 / .25);border-radius:24px;background:linear-gradient(140deg,oklch(0.78 0.17 58 / .09),#141310 55%);padding:clamp(30px,5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:clamp(28px,5vw,64px)">
+<div>
+<h2 style="margin:0;font-size:clamp(35px,4.8vw,60px);line-height:1.05;letter-spacing:-.04em;font-weight:400;text-wrap:balance">우리 도서관 입구부터 줄을 없애 볼까요?</h2>
+<p style="margin:20px 0 0;font-size:21px;line-height:1.6;letter-spacing:-.015em;color:rgba(242,240,236,.62)">통로 2개 규모의 4주 파일럿으로 시작합니다. 대기시간·처리량 측정 리포트를 함께 드립니다.</p>
+<div style="margin-top:28px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:rgba(242,240,236,.45);line-height:2">
+pilot@passthru.kr<br>02-000-0000
+</div>
+</div>
+<sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;flex-direction:column;justify-content:center;gap:12px;border:1px solid oklch(0.78 0.17 58 / .4);border-radius:16px;padding:32px;background:rgba(0,0,0,.25)">
+<div style="font-size:20px;font-weight:600;color:oklch(0.82 0.16 58)">문의가 접수되었습니다</div>
+<div style="font-size:18px;line-height:1.65;color:rgba(242,240,236,.6)">영업일 2일 내에 파일럿 제안서와 현장 실측 일정을 회신드립니다.</div>
+<button onClick="{{ reset }}" style="align-self:flex-start;margin-top:8px;background:none;border:1px solid rgba(255,255,255,.2);color:#f2f0ec;font-size:13px;padding:10px 16px;border-radius:999px;cursor:pointer">다시 작성</button>
+</div>
+</sc-if>
+<sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+<div style="display:flex;flex-direction:column;gap:12px">
+<label style="display:flex;flex-direction:column;gap:7px;font-size:12.5px;color:rgba(242,240,236,.5)">학교 / 기관명
+<input value="{{ univ }}" onChange="{{ setUniv }}" placeholder="○○대학교 중앙도서관" style="background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.15);border-radius:11px;padding:13px 15px;color:#f2f0ec;font-size:14.5px;outline:none" style-focus="border-color:oklch(0.78 0.17 58)">
+</label>
+<label style="display:flex;flex-direction:column;gap:7px;font-size:12.5px;color:rgba(242,240,236,.5)">담당자 이메일
+<input value="{{ email }}" onChange="{{ setEmail }}" placeholder="name@univ.ac.kr" style="background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.15);border-radius:11px;padding:13px 15px;color:#f2f0ec;font-size:14.5px;outline:none" style-focus="border-color:oklch(0.78 0.17 58)">
+</label>
+<label style="display:flex;flex-direction:column;gap:7px;font-size:12.5px;color:rgba(242,240,236,.5)">게이트 통로 수 · 문의 내용
+<textarea value="{{ note }}" onChange="{{ setNote }}" rows="3" placeholder="입구 2곳, 통로 6개. 시험기간 혼잡 개선이 목적입니다." style="background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.15);border-radius:11px;padding:13px 15px;color:#f2f0ec;font-size:14.5px;outline:none;resize:vertical" style-focus="border-color:oklch(0.78 0.17 58)"></textarea>
+</label>
+<div style="font-size:12.5px;color:{{ errColor }};min-height:18px">{{ error }}</div>
+<button onClick="{{ submit }}" style="font-size:17px;font-weight:600;color:#0c0b0a;background:oklch(0.78 0.17 58);border:none;padding:17px;border-radius:12px;cursor:pointer" style-hover="background:#f2f0ec">파일럿 문의 보내기</button>
+</div>
+</sc-if>
+</div>
+</section>
+
+<footer style="position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.07)">
+<div style="max-width:1180px;margin:0 auto;padding:34px 28px;display:flex;flex-wrap:wrap;gap:18px;align-items:center;font-size:12.5px;color:rgba(242,240,236,.4)">
+<span style="font-weight:600;color:rgba(242,240,236,.7)">패스루 PASSTHRU</span>
+<span>대학 도서관 무정지 출입 서비스</span>
+<span style="margin-left:auto;font-family:'IBM Plex Mono',monospace">© 2026 · 콘셉트 제안용 페이지</span>
+</div>
+</footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;techMode&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;BLE 근접 인식&quot;,&quot;UWB 초정밀 측위&quot;,&quot;NFC 근거리 태그&quot;],&quot;default&quot;:&quot;BLE 근접 인식&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;콘텐츠&quot;},&quot;autoDemo&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;동작&quot;}}">
+const MINT = "oklch(0.78 0.17 58)";
+const ENDPOINT = "";
+const send = (type, data) => {
+  if (!ENDPOINT) return;
+  try {
+    fetch(ENDPOINT, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(Object.assign({ type: type, ts: new Date().toISOString() }, data)) }).catch(function(){});
+  } catch (e) {}
+};
+
+const TECH = {
+  "BLE 근접 인식": {
+    badge: "BLE 무정지 통과 · 파일럿 모집",
+    stepTitle: "게이트 4m 앞에서 자동 감지",
+    stepBody: "게이트 리더가 주머니 속 휴대폰의 저전력 블루투스 신호를 감지하고, 신호 세기로 접근 거리를 계산해 인증을 미리 끝냅니다.",
+    trust: "무정지 통과에 필요한 건 '지금 이 게이트 앞에 등록된 기기가 있다'는 사실 하나입니다. 블루투스 신호는 게이트 반경에서만 교환되고, 학번은 서버 대조 시점에만 사용되며 통과 기록은 기기에 남습니다."
+  },
+  "UWB 초정밀 측위": {
+    badge: "UWB 무정지 통과 · 파일럿 모집",
+    stepTitle: "센티미터 단위로 통과 방향 판정",
+    stepBody: "UWB 앵커가 휴대폰의 위치와 이동 방향을 센티미터 단위로 계산합니다. 옆을 지나가는 사람과 실제로 들어오는 사람을 구분합니다.",
+    trust: "UWB는 방향과 거리만 계산하고 좌표 이력을 남기지 않습니다. 측위는 게이트 앵커 반경 안에서만 이루어지며, 통과 기록은 기기에 저장됩니다."
+  },
+  "NFC 근거리 태그": {
+    badge: "NFC 원터치 통과 · 파일럿 모집",
+    stepTitle: "가방째 리더에 스치기",
+    stepBody: "휴대폰을 꺼내지 않고 가방이나 주머니를 리더에 스치면 인증됩니다. 화면을 켜거나 앱을 열 필요가 없습니다.",
+    trust: "NFC는 수 센티미터 안에서만 통신하므로 원거리 추적이 불가능합니다. 교환되는 값은 일회성 토큰이고, 통과 기록은 기기에 남습니다."
+  }
+};
+
+class Component extends DCLogic {
+  state = { phase: 0, snap: false, log: [], univ: "", email: "", note: "", error: "", sent: false, preName: "", preUniv: "", preMail: "", preAgree: true, preError: "", preSent: false };
+
+  componentDidMount() {
+    if (this.props.autoDemo !== false) {
+      this.loop = setInterval(() => { if (this.state.phase === 0) this.walk(); }, 6500);
+      setTimeout(this.walk, 1200);
+    }
+  }
+
+  componentWillUnmount() { (this.timers || []).forEach(clearTimeout); clearInterval(this.loop); }
+
+  walk = () => {
+    if (this.state.phase !== 0) return;
+    (this.timers || []).forEach(clearTimeout);
+    const push = (t, text, color) => this.setState(s => ({ log: [...s.log.slice(-3), { t, text, color }] }));
+    this.setState({ phase: 1, snap: false, log: [{ t: "0.00s", text: "기기 신호 감지 (4.0m)", color: "rgba(242,240,236,.65)" }] });
+    this.timers = [
+      setTimeout(() => { this.setState({ phase: 2 }); push("0.18s", "익명 토큰 검증 완료", MINT); }, 900),
+      setTimeout(() => { this.setState({ phase: 3 }); push("0.31s", "게이트 개방", MINT); }, 1500),
+      setTimeout(() => push("0.72s", "통과 · 화면 켜짐 없음", "rgba(242,240,236,.65)"), 2400),
+      setTimeout(() => this.setState({ phase: 4 }), 3200),
+      setTimeout(() => this.setState({ phase: 0, snap: true }), 3600),
+      setTimeout(() => this.setState({ snap: false }), 4050)
+    ];
+  };
+
+  preSubmit = () => {
+    const { preName, preUniv, preMail, preAgree } = this.state;
+    if (!preName.trim() || !preUniv.trim()) return this.setState({ preError: "이름과 학교를 입력해 주세요." });
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(preMail)) return this.setState({ preError: "학교 이메일 주소를 확인해 주세요." });
+    if (!preAgree) return this.setState({ preError: "알림 수신 동의가 필요합니다." });
+    send("student", { name: preName.trim(), univ: preUniv.trim(), email: preMail.trim() });
+    this.setState({ preSent: true, preError: "" });
+  };
+
+  submit = () => {
+    const { univ, email } = this.state;
+    if (!univ.trim()) return this.setState({ error: "기관명을 입력해 주세요." });
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return this.setState({ error: "올바른 이메일 주소를 입력해 주세요." });
+    send("pilot", { org: univ.trim(), email: email.trim(), note: (this.state.note || "").trim() });
+    this.setState({ sent: true, error: "" });
+  };
+
+  renderVals() {
+    const p = this.state.phase;
+    const shown = Math.min(p, 3);
+    const tech = TECH[this.props.techMode] || TECH["BLE 근접 인식"];
+    const open = p === 3;
+    const status = [
+      { l: "대기 중", d: "게이트는 닫혀 있고 리더는 주변 신호만 듣고 있습니다. 버튼을 눌러 학생 한 명을 걸어오게 해보세요.", c: "rgba(242,240,236,.85)" },
+      { l: "감지", d: "4m 앞 등록 기기를 발견했습니다. 화면은 여전히 꺼진 상태입니다.", c: "rgba(242,240,236,.85)" },
+      { l: "인증", d: "익명 토큰이 검증되어 통과 권한이 부여되었습니다. 소요 0.18초.", c: MINT },
+      { l: "통과", d: "도착 0.4초 전 게이트가 열립니다. 학생은 걷는 속도를 줄이지 않았습니다.", c: MINT }
+    ][shown];
+    return {
+      walk: this.walk,
+      log: this.state.log,
+      dotX: ["4%", "32%", "44%", "94%", "94%"][p],
+      dotOp: p === 4 ? 0 : 1,
+      dotTrans: this.state.snap ? "opacity .3s" : "left 1.15s cubic-bezier(.45,.05,.3,1), opacity .3s",
+      armL: open ? "rotateY(84deg)" : "rotateY(0deg)",
+      armR: open ? "rotateY(-84deg)" : "rotateY(0deg)",
+      glow: p === 2 || p === 3 ? 1 : 0,
+      readerColor: p === 0 || p === 4 ? "rgba(242,240,236,.25)" : MINT,
+      statusLabel: status.l, statusDesc: status.d, statusColor: status.c,
+      techBadge: tech.badge, stepTitle: tech.stepTitle, stepBody: tech.stepBody, trustCopy: tech.trust,
+      univ: this.state.univ, email: this.state.email, note: this.state.note,
+      setUniv: e => this.setState({ univ: e.target.value }),
+      setEmail: e => this.setState({ email: e.target.value }),
+      setNote: e => this.setState({ note: e.target.value }),
+      submit: this.submit,
+      reset: () => this.setState({ sent: false, univ: "", email: "", note: "" }),
+      error: this.state.error, errColor: "oklch(0.7 0.19 25)",
+      sent: this.state.sent, notSent: !this.state.sent,
+      preName: this.state.preName, preUniv: this.state.preUniv, preMail: this.state.preMail,
+      preAgree: this.state.preAgree, preError: this.state.preError,
+      preSent: this.state.preSent, preNotSent: !this.state.preSent,
+      setPreName: e => this.setState({ preName: e.target.value }),
+      setPreUniv: e => this.setState({ preUniv: e.target.value }),
+      setPreMail: e => this.setState({ preMail: e.target.value }),
+      togglePreAgree: e => this.setState({ preAgree: e.target.checked }),
+      preSubmit: this.preSubmit,
+      preReset: () => this.setState({ preSent: false, preName: "", preUniv: "", preMail: "" })
+    };
+  }
+}
+
+</script>
+</body>
+</html>
